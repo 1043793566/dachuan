@@ -4,31 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="858e0377-fe39-4ce5-95d6-24d66d868b41" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/EndApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/controller/AuthorizeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/service/AuthorizeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/end/src/test/java/com/example/end/EndApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/ForgetPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/LoginPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/ProtocolPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/RegisterPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro/src/net/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fro/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jer2.iml" afterDir="false" />
+    <list default="true" id="858e0377-fe39-4ce5-95d6-24d66d868b41" name="更改" comment="0.15">
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/config/WebConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/AccountUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/RBAC/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/RBAC/RolePermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/RBAC/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/interceptor/AuthorizeInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/mapper/PermissionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/mapper/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/ForgetPhone.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/PersonalData.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fro/src/components/welcome/PersonalData2.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fro/src/stores/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fro/src/views/aboutus.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fro/src/views/leading.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/end/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/EndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/EndApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/controller/AuthorizeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/RestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/entity/RestBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/service/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/service/AuthorizeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/java/com/example/end/service/impl/AuthorizeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/java/com/example/end/service/impl/AuthorizeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/end/src/test/java/com/example/end/EndApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/end/src/test/java/com/example/end/EndApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fro/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/fro/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/fro/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/fro/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/components/welcome/ForgetPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/components/welcome/ForgetEmail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/components/welcome/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/components/welcome/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/components/welcome/ProtocolPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/components/welcome/ProtocolPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/components/welcome/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/components/welcome/RegisterByEmail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/views/Welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/views/Welcome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fro/src/views/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/fro/src/views/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +57,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JavaScript File" />
         <option value="Vue Composition API Component" />
       </list>
     </option>
@@ -105,6 +124,9 @@
     ]
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\fyj2002119\IdeaProjects\jer2\fro\src\views" />
@@ -187,8 +209,60 @@
       <workItem from="1698212909024" duration="249000" />
       <workItem from="1698213176197" duration="2749000" />
       <workItem from="1698243180837" duration="618000" />
-      <workItem from="1698573000552" duration="4725000" />
+      <workItem from="1698573000552" duration="9183000" />
+      <workItem from="1698675008663" duration="465000" />
+      <workItem from="1698675953067" duration="1072000" />
+      <workItem from="1698677276175" duration="1993000" />
+      <workItem from="1698723352649" duration="670000" />
+      <workItem from="1698753762774" duration="15238000" />
+      <workItem from="1698817022973" duration="729000" />
+      <workItem from="1698839069680" duration="12533000" />
+      <workItem from="1698906163603" duration="16404000" />
+      <workItem from="1698982287787" duration="9494000" />
+      <workItem from="1699168893716" duration="675000" />
+      <workItem from="1699169733123" duration="7000" />
+      <workItem from="1699169891068" duration="628000" />
+      <workItem from="1699170526328" duration="100000" />
+      <workItem from="1699170652396" duration="19407000" />
+      <workItem from="1699272850540" duration="5983000" />
+      <workItem from="1699279295602" duration="3138000" />
+      <workItem from="1699284124361" duration="56000" />
+      <workItem from="1699284379312" duration="169000" />
+      <workItem from="1699336249923" duration="6487000" />
+      <workItem from="1699350566931" duration="12118000" />
+      <workItem from="1699368366822" duration="2844000" />
+      <workItem from="1699419063104" duration="2460000" />
+      <workItem from="1699423054654" duration="8150000" />
+      <workItem from="1699614838394" duration="4000" />
+      <workItem from="1700028652037" duration="625000" />
+      <workItem from="1700033295959" duration="206000" />
+      <workItem from="1700393772743" duration="2686000" />
+      <workItem from="1700475278775" duration="1339000" />
+      <workItem from="1700479158700" duration="10642000" />
+      <workItem from="1700570081205" duration="6079000" />
+      <workItem from="1700746435700" duration="7709000" />
+      <workItem from="1700814965656" duration="17620000" />
+      <workItem from="1700883132292" duration="23532000" />
+      <workItem from="1700928061712" duration="2290000" />
+      <workItem from="1700975872386" duration="19345000" />
+      <workItem from="1701002606762" duration="5972000" />
+      <workItem from="1701064157107" duration="528000" />
+      <workItem from="1701068125450" duration="1744000" />
+      <workItem from="1701080958780" duration="7200000" />
+      <workItem from="1701088203062" duration="7440000" />
+      <workItem from="1701096321217" duration="1458000" />
+      <workItem from="1701142106045" duration="718000" />
+      <workItem from="1701162713772" duration="470000" />
     </task>
+    <task id="LOCAL-00001" summary="0.15">
+      <option name="closed" value="true" />
+      <created>1698583636610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698583636610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +314,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0.15" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.15" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -248,9 +326,9 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/fro/src/components/welcome/LoginPage.vue</url>
-          <line>71</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/fro/src/App.vue</url>
+          <line>5</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

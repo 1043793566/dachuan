@@ -1,11 +1,13 @@
 <script setup>
 import {Lock, User} from "@element-plus/icons-vue";
-import {ElMessage} from "element-plus";
+
 import {reactive} from "vue";
-import {post} from "@/net";
+import {get, post} from "@/net";
 import router from "@/router";
+import {useStore} from "@/stores";
+import {ElMessage} from "element-plus";
 
-
+const store = useStore()
 const form = reactive({
   username: '',
   password: '',
@@ -22,7 +24,12 @@ const login = () =>{
       remember: form.remember
     }, (message) => {
       ElMessage.success(message)
+      get('/api/user/me', (message) => {
+        store.auth.user = message
         router.push('/index')
+      }, () => {
+        store.auth.user = null
+      })
       })
   }
 }
@@ -35,7 +42,7 @@ const login = () =>{
   <div style="font-size:20px;color: lightslategray">在进入平台之前请先完成登陆：）</div>
 </div>
 <div style="margin-top: 50px">
-  <el-input v-model="form.username" type="text" placeholder="用户名/邮箱登陆">
+  <el-input v-model="form.username" type="text" placeholder="用户名/邮箱/手机号登陆">
     <template v-slot:prepend>
       <el-icon><User /></el-icon>
     </template>
@@ -57,7 +64,7 @@ const login = () =>{
       </el-col>
 
       <el-col span="12" style="text-align: right; color: darkblue ; transform: translateX(-30px);font-size: 22px;">
-        <el-link @click="router.push('/forget')">搞忘密码？</el-link>
+        <el-link @click="router.push('/welcome/forgetemail')">搞忘密码？</el-link>
       </el-col>
     </el-row>
   </div>
@@ -69,7 +76,7 @@ const login = () =>{
 <el-divider>
   <span style="color: black">没得账号</span>
 </el-divider>
-<el-button @click="router.push('/protocol')" style="width: 300px" type="warning" plain>马上注册</el-button>
+<el-button @click="router.push('/welcome/protocol')" style="width: 300px" type="warning" plain>马上注册</el-button>
 
 </div>
 </template>

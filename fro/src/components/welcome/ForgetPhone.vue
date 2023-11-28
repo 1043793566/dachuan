@@ -1,14 +1,15 @@
 <script setup>
 import {reactive, ref} from "vue";
-import {EditPen, Lock, Message} from "@element-plus/icons-vue";
+import {EditPen, Lock, Iphone} from "@element-plus/icons-vue";
 import {post} from "@/net";
 import {ElMessage} from "element-plus";
 import router from "@/router";
-
+import Img from "@/assets/10.jpg";
+import Vcode from 'vue3-puzzle-vcode'
 const active = ref(0)
 
 const form = reactive({
-  email: '',
+  phone: '',
   code: '',
   password: '',
   password_repeat: '',
@@ -23,11 +24,19 @@ const validatePassword = (rule, value, callback) => {
     callback()
   }
 }
+const validatePhone1 = (rule, value, callback) => {
+  if (value === '') {
+    callback(new Error('请输入手机号'))
+  } else if(!/^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/.test(value)){
+    callback(new Error('手机号不符合规范'))
+  } else {
+    callback()
+  }
+}
 
 const rules = {
-  email: [
-    { required: true, message: '请输入邮件地址', trigger: 'blur' },
-    {type: 'email', message: '请输入合法的电子邮件地址', trigger: ['blur', 'change']}
+  phone: [
+    {validator: validatePhone1, trigger: ['blur', 'change']}
   ],
   code: [
     { required: true, message: '请输入获取的验证码', trigger: 'blur' },
@@ -42,18 +51,30 @@ const rules = {
 }
 
 const formRef = ref()
-const isEmailValid = ref(false)
+const isPhoneValid = ref(false)
 const coldTime = ref(0)
 
 const onValidate = (prop, isValid) => {
-  if(prop === 'email')
-    isEmailValid.value = isValid
+  if(prop === 'phone')
+    isPhoneValid.value = isValid
+}
+const isShow = ref(false)
+
+const close = () => {
+  isShow.value = false
 }
 
-const validateEmail = () => {
+const fail = () => {
+  console.log('验证失败')
+}
+const validatePhone = () => {
+  //展现验证码模态框
+  isShow.value = true
+}
+const success = () => {
   coldTime.value = 60
-  post('/api/auth/valid-reset-email', {
-    email: form.email
+  post('/api/auth/valid-reset-phone', {
+    phone: form.phone
   }, (message) => {
     ElMessage.success(message)
     setInterval(() => coldTime.value--, 1000)
@@ -66,14 +87,14 @@ const validateEmail = () => {
 const startReset = () => {
   formRef.value.validate((isValid) => {
     if(isValid) {
-      post('/api/auth/start-reset', {
-        email: form.email,
+      post('/api/auth/start-reset-phone', {
+        phone: form.phone,
         code: form.code
       }, () => {
         active.value++
       })
     } else {
-      ElMessage.warning('请填写电子邮件地址和验证码')
+      ElMessage.warning('请填写手机号码和验证码')
     }
   })
 }
@@ -81,11 +102,11 @@ const startReset = () => {
 const doReset = () => {
   formRef.value.validate((isValid) => {
     if(isValid) {
-      post('/api/auth/do-reset', {
+      post('/api/auth/do-reset-phone', {
         password: form.password
       }, (message) => {
         ElMessage.success(message)
-        router.push('/')
+        router.push('/welcome/login')
       })
     } else {
       ElMessage.warning('请填写新的密码')
@@ -99,7 +120,7 @@ const doReset = () => {
   <div>
     <div style="margin: 30px 20px">
       <el-steps :active="active" finish-status="success" align-center>
-        <el-step title="验证电子邮件" />
+        <el-step title="验证手机号码" />
         <el-step title="重新设定密码" />
       </el-steps>
     </div>
@@ -107,14 +128,14 @@ const doReset = () => {
       <div style="text-align: center;margin: 0 20px;height: 100%" v-if="active === 0">
         <div style="margin-top: 80px">
           <div style="font-size: 25px;font-weight: bold">重置密码</div>
-          <div style="font-size: 14px;color: grey">请输入需要重置密码的电子邮件地址</div>
+          <div style="font-size: 14px;color: grey">请输入需要重置密码的手机号码</div>
         </div>
         <div style="margin-top: 50px">
           <el-form :model="form" :rules="rules" @validate="onValidate" ref="formRef">
-            <el-form-item prop="email">
-              <el-input v-model="form.email" type="email" placeholder="电子邮件地址">
+            <el-form-item prop="phone">
+              <el-input v-model="form.phone" :maxlength="11" type="tel" placeholder="手机号码">
                 <template #prefix>
-                  <el-icon><Message /></el-icon>
+                  <el-icon><Iphone /></el-icon>
                 </template>
               </el-input>
             </el-form-item>
@@ -128,8 +149,9 @@ const doReset = () => {
                   </el-input>
                 </el-col>
                 <el-col :span="5">
-                  <el-button type="success" @click="validateEmail"
-                             :disabled="!isEmailValid || coldTime > 0">
+                  <el-button type="success" @click="validatePhone"
+                             :disabled="!isPhoneValid || coldTime > 0">
+                    <Vcode :show="isShow" @success="success" @close="close" @fail="fail" :img="[Img]"></Vcode>
                     {{coldTime > 0 ? '请稍后 ' + coldTime + ' 秒' : '获取验证码'}}
                   </el-button>
                 </el-col>

@@ -1,10 +1,11 @@
-element库  <script setup>
+ <script setup>
 import {EditPen, Lock, Message, User} from "@element-plus/icons-vue";
 import router from "@/router";
 import {reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
 import {post} from "@/net";
-
+import Vcode from 'vue3-puzzle-vcode'
+import Img from '@/assets/10.jpg'
 const form = reactive({
   username: '',
   password: '',
@@ -12,6 +13,15 @@ const form = reactive({
   email: '',
   code: ''
 })
+const isShow = ref(false)
+//用户点击遮罩层，关闭模态框1
+const close = () => {
+  isShow.value = false
+}
+//用户验证失败
+const fail = () => {
+  console.log('验证失败')
+}
 
 const validateUsername = (rule, value, callback) => {
   if (value === '') {
@@ -66,23 +76,27 @@ const onValidate = (prop, isValid) => {
 const register = () => {
   formRef.value.validate((isValid) => {
     if(isValid) {
-      post('/api/auth/register', {
+      post('/api/auth/register1', {
         username: form.username,
         password: form.password,
         email: form.email,
         code: form.code
       }, (message) => {
         ElMessage.success(message)
-        router.push("/")
+        router.push("/welcome/personaldata")
       })
     } else {
       ElMessage.warning('请完整填写注册表单内容！')
     }
   })
 }
-
 const validateEmail = () => {
-  coldTime.value = 60
+  //展现验证码模态框
+  isShow.value = true
+}
+
+const success = () => {
+  coldTime.value = 60;
   post('/api/auth/valid-register-email', {
     email: form.email
   }, (message) => {
@@ -93,18 +107,21 @@ const validateEmail = () => {
     coldTime.value = 0
   })
 }
+
+
 </script>
 
 <template>
   <div style="text-align: center;margin: 0 20px">
     <div style="margin-top: 200px">
       <div style="font-size: 25px;font-weight: bold;color: black">注册新用户</div>
+      <div style="font-size: 22px;font-weight: bold;color: black">您正在使用电子邮箱注册</div>
       <div style="font-size: 14px;color: grey">欢迎注册我们的平台，请在下方填写相关信息</div>
     </div>
     <div style="margin-top: 50px">
       <el-form :model="form" :rules="rules" @validate="onValidate" ref="formRef">
         <el-form-item prop="username">
-          <el-input v-model="form.username" :maxlength="10" type="text" placeholder="用户名">
+          <el-input v-model="form.username" :maxlength="10" type="text" placeholder="用户名，不能包括特殊字符">
             <template #prefix>
               <el-icon><User /></el-icon>
             </template>
@@ -143,6 +160,7 @@ const validateEmail = () => {
             <el-col :span="5">
               <el-button style="width: 152px" type="success" @click="validateEmail"
                          :disabled="!isEmailValid || coldTime > 0">
+                <Vcode :show="isShow" @success="success" @close="close" @fail="fail" :img="[Img]"></Vcode>
                 {{coldTime > 0 ? '请稍后 ' + coldTime + ' 秒' : '获取验证码'}}
               </el-button>
             </el-col>
@@ -150,12 +168,16 @@ const validateEmail = () => {
         </el-form-item>
       </el-form>
     </div>
-    <div style="margin-top: 80px">
-      <el-button style="width: 320px" type="warning" @click="register" plain>立即注册</el-button>
+    <div style="margin-top: 60px">
+      <el-button style="width: 320px" type="primary" @click="register" plain>立刻注册</el-button>
+    </div>
+    <div style="margin-top: 20px">
+      <el-button style="width: 320px" type="warning"
+                 @click="router.push('/welcome/registerbyphone')" plain>通过手机验证码注册</el-button>
     </div>
     <div style="margin-top: 20px">
       <span style="font-size: 14px;line-height: 15px;color: grey">已有账号? </span>
-      <el-link type="primary" style="translate: 0 -2px" @click="router.push('/')">立即登录</el-link>
+      <el-link type="primary" style="translate: 0 -2px" @click="router.push('/welcome/login')">立即登录</el-link>
     </div>
   </div>
 </template>

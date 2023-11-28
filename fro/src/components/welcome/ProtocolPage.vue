@@ -20,7 +20,7 @@
         type="warning"
         plain
         style="width: 300px"
-        @click="router.push('/register')"
+        @click="router.push('/welcome/registerbyemail')"
     >
       马上注册
     </el-button>
